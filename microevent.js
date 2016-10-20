@@ -46,10 +46,16 @@ MicroEvent.mixin	= function(destObject){
 			destObject[props[i]] = MicroEvent.prototype[props[i]];
 		}
 	}
-	return destObject;
 }
 
 // export in common js
 if( typeof module !== "undefined" && ('exports' in module)){
 	module.exports	= MicroEvent;
+}
+
+// AMD support
+if( typeof define !== "undefined"){
+		define([], function(){
+				return MicroEvent;
+		});
 }
